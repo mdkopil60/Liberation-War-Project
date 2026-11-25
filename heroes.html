@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroes | Bangladesh 1971</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-green-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-5 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-bold">🇧🇩 Bangladesh 1971</a>
+            <button id="menuBtn" class="md:hidden text-3xl" aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+            <ul id="menu" class="hidden md:flex gap-6 font-semibold">
+                <li><a href="index.html" class="hover:text-red-400">Home</a></li>
+                <li><a href="history.html" class="hover:text-red-400">History</a></li>
+                <li><a href="timeline.html" class="hover:text-red-400">Timeline</a></li>
+                <li><a href="heroes.html" class="hover:text-red-400">Heroes</a></li>
+                <li><a href="quiz.html" class="hover:text-red-400">Quiz</a></li>
+            </ul>
+        </div>
+        <ul id="mobileMenu" class="hidden md:hidden flex-col gap-4 px-6 pb-5 font-semibold">
+            <li><a href="index.html" class="block hover:text-red-400">Home</a></li>
+            <li><a href="history.html" class="block hover:text-red-400">History</a></li>
+            <li><a href="timeline.html" class="block hover:text-red-400">Timeline</a></li>
+            <li><a href="heroes.html" class="block hover:text-red-400">Heroes</a></li>
+            <li><a href="quiz.html" class="block hover:text-red-400">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="py-16 px-5">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-green-700 font-bold">OUR PRIDE</p>
+                <h1 class="text-3xl md:text-4xl font-bold text-green-900 mt-2">Our National Heroes</h1>
+                <div class="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <article
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Sheikh_Mujibur_Rahman_in_1950s.jpg/440px-Sheikh_Mujibur_Rahman_in_1950s.jpg"
+                        class="w-full h-72 object-cover object-top" alt="Sheikh Mujibur Rahman">
+                    <div class="p-6 text-center">
+                        <h2 class="text-xl font-bold text-green-900">Sheikh Mujibur Rahman</h2>
+                        <p class="text-gray-600 mt-2">Father of the Nation</p>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/M_A_G_Osmani.jpg/440px-M_A_G_Osmani.jpg"
+                        class="w-full h-72 object-cover object-top" alt="M. A. G. Osmani">
+                    <div class="p-6 text-center">
+                        <h2 class="text-xl font-bold text-green-900">M. A. G. Osmani</h2>
+                        <p class="text-gray-600 mt-2">Commander-in-Chief of Bangladesh Forces</p>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Abdul_Hamid_Khan_Bhashani.jpg/440px-Abdul_Hamid_Khan_Bhashani.jpg"
+                        class="w-full h-72 object-cover object-top" alt="Maulana Bhashani">
+                    <div class="p-6 text-center">
+                        <h2 class="text-xl font-bold text-green-900">Maulana Bhashani</h2>
+                        <p class="text-gray-600 mt-2">Political Leader</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-950 text-white text-center py-10 px-5 mt-12">
+        <h2 class="text-2xl font-bold">🇧🇩 Bangladesh 1971</h2>
+        <p class="mt-4 text-gray-400">Remembering the sacrifices of our freedom fighters.</p>
+        <p class="mt-5 text-sm text-gray-500">© <span id="year"></span> Liberation War Project | Made with ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

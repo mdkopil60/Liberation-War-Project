@@ -1,104 +1,130 @@
-
-// ===============================
-// Mobile Menu
-// ===============================
-
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
-menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
+if (menuBtn && mobileMenu) {
 
-    menuBtn.innerHTML = mobileMenu.classList.contains("hidden")
-        ? "☰"
-        : "✕";
-});
+    menuBtn.addEventListener("click", () => {
 
-// Close menu after clicking a link
+        const isOpening = mobileMenu.classList.contains("hidden");
 
-const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("flex", isOpening);
 
-mobileLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        menuBtn.innerHTML = "☰";
+        menuBtn.innerHTML = isOpening ? "✕" : "☰";
+
+        menuBtn.setAttribute("aria-expanded", String(isOpening));
+
     });
-});
 
+    // Close menu after clicking a link
+    mobileMenu.querySelectorAll("a").forEach(link => {
 
-// ===============================
-// Liberation War Timeline
-// ===============================
+        link.addEventListener("click", () => {
+
+            mobileMenu.classList.add("hidden");
+            mobileMenu.classList.remove("flex");
+
+            menuBtn.innerHTML = "☰";
+
+            menuBtn.setAttribute("aria-expanded", "false");
+
+        });
+
+    });
+
+}
+
+// Dynamic Footer Year
+
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
 
 const timelineData = [
+
     {
         date: "7 March 1971",
         title: "Historic Speech",
         description: "Sheikh Mujibur Rahman delivered his historic speech at the Racecourse Ground."
     },
+
     {
         date: "25 March 1971",
         title: "Operation Searchlight",
         description: "The Pakistan Army launched a brutal military operation in Dhaka."
     },
+
     {
         date: "26 March 1971",
         title: "Independence Day",
         description: "Bangladesh declared its independence and began its Liberation War."
     },
+
     {
         date: "17 April 1971",
         title: "Mujibnagar Government",
         description: "The provisional government of Bangladesh was formally sworn in."
     },
+
     {
         date: "16 December 1971",
         title: "Victory Day",
         description: "Bangladesh achieved victory after nine months of Liberation War."
     }
+
 ];
 
 const timelineContainer = document.getElementById("timelineContainer");
 
-timelineData.forEach((event, index) => {
+if (timelineContainer) {
 
-    const card = document.createElement("div");
+    timelineData.forEach((event, index) => {
 
-    card.className = `
-        bg-white p-6 rounded-xl shadow-md
-        border-t-4 border-green-700
-        hover:-translate-y-2 hover:shadow-xl
-        transition duration-300
+        const card = document.createElement("article");
+
+        card.className = `
+      bg-white p-6 rounded-xl shadow-md
+      border-t-4 border-green-700
+      hover:-translate-y-2 hover:shadow-xl
+      transition duration-300
     `;
 
-    card.innerHTML = `
-        <div class="w-12 h-12 bg-red-100 text-red-600
-            rounded-full flex items-center justify-center
-            font-bold text-xl mb-4">
-            ${index + 1}
-        </div>
+        const number = document.createElement("div");
 
-        <h3 class="text-green-800 font-bold text-lg">
-            ${event.date}
-        </h3>
-
-        <h4 class="text-xl font-bold mt-3 mb-2">
-            ${event.title}
-        </h4>
-
-        <p class="text-gray-600 leading-7">
-            ${event.description}
-        </p>
+        number.className = `
+      w-12 h-12 bg-red-100 text-red-600
+      rounded-full flex items-center justify-center
+      font-bold text-xl mb-4
     `;
 
-    timelineContainer.appendChild(card);
+        number.textContent = index + 1;
 
-});
+        const date = document.createElement("h2");
 
+        date.className = "text-green-800 font-bold text-lg";
+        date.textContent = event.date;
 
-// ===============================
+        const title = document.createElement("h3");
+
+        title.className = "text-xl font-bold mt-3 mb-2";
+        title.textContent = event.title;
+
+        const description = document.createElement("p");
+
+        description.className = "text-gray-600 leading-7";
+        description.textContent = event.description;
+
+        card.append(number, date, title, description);
+
+        timelineContainer.appendChild(card);
+
+    });
+
+}
+
 // Liberation War Quiz
-// ===============================
 
 const quizData = [
 
@@ -159,9 +185,8 @@ const quizData = [
 
 ];
 
-let currentQuestion = 0;
-let totalScore = 0;
-let answered = false;
+
+// Quiz HTML Elements
 
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
@@ -171,197 +196,232 @@ const scoreElement = document.getElementById("score");
 const questionNumber = document.getElementById("questionNumber");
 
 
-// Show Question
+// Run Quiz Only When Quiz Elements Exist
 
-function loadQuestion() {
+if (
+    questionElement &&
+    optionsElement &&
+    resultElement &&
+    nextBtn &&
+    scoreElement &&
+    questionNumber
+) {
 
-    answered = false;
+    let currentQuestion = 0;
+    let totalScore = 0;
+    let answered = false;
+    let quizFinished = false;
 
-    const currentQuiz = quizData[currentQuestion];
+    // Load Question
 
-    questionElement.innerText = currentQuiz.question;
+    function loadQuestion() {
 
-    questionNumber.innerText =
-        `Question ${currentQuestion + 1} / ${quizData.length}`;
+        answered = false;
+        quizFinished = false;
 
-    scoreElement.innerText = `Score: ${totalScore}`;
+        const currentQuiz = quizData[currentQuestion];
 
-    resultElement.innerText = "";
+        questionElement.textContent = currentQuiz.question;
 
-    optionsElement.innerHTML = "";
+        questionNumber.textContent =
+            `Question ${currentQuestion + 1} / ${quizData.length}`;
 
-    nextBtn.innerText = "Next Question →";
-    nextBtn.disabled = true;
-    nextBtn.classList.add("opacity-50", "cursor-not-allowed");
+        scoreElement.textContent = `Score: ${totalScore}`;
 
-    currentQuiz.options.forEach((option, index) => {
+        resultElement.textContent = "";
+        resultElement.className = "mt-6 font-bold";
 
-        const button = document.createElement("button");
+        optionsElement.innerHTML = "";
 
-        button.innerText = option;
+        nextBtn.textContent = "Next Question →";
+        nextBtn.disabled = true;
 
-        button.className = `
-            w-full p-4 rounded-lg border-2 border-gray-200
-            text-left font-medium
-            hover:bg-green-50 hover:border-green-600
-            transition duration-200
-        `;
 
-        button.addEventListener("click", () => {
-            checkAnswer(index);
+        // Show Options
+
+        currentQuiz.options.forEach((option, index) => {
+
+            const button = document.createElement("button");
+
+            button.type = "button";
+            button.textContent = option;
+
+            button.className = `
+        w-full p-4 rounded-lg border-2 border-gray-200
+        text-left font-medium
+        hover:bg-green-50 hover:border-green-600
+        transition duration-200
+      `;
+
+            button.addEventListener("click", () => {
+
+                checkAnswer(index);
+
+            });
+
+            optionsElement.appendChild(button);
+
         });
 
-        optionsElement.appendChild(button);
+    }
 
-    });
+    // Check Answer
 
-}
+    function checkAnswer(selectedIndex) {
+
+        if (answered || quizFinished) return;
+
+        answered = true;
+
+        const correctAnswer = quizData[currentQuestion].answer;
+
+        const allOptions = optionsElement.querySelectorAll("button");
 
 
-// Check Answer
+        allOptions.forEach((button, index) => {
 
-function checkAnswer(selectedIndex) {
+            button.disabled = true;
 
-    if (answered) return;
+            // Correct Answer
 
-    answered = true;
+            if (index === correctAnswer) {
 
-    const correctAnswer = quizData[currentQuestion].answer;
+                button.classList.remove("border-gray-200");
 
-    const allOptions = optionsElement.querySelectorAll("button");
+                button.classList.add(
+                    "bg-green-100",
+                    "border-green-600",
+                    "text-green-800"
+                );
 
-    allOptions.forEach((button, index) => {
+            }
 
-        button.disabled = true;
+            // Wrong Selected Answer
 
-        if (index === correctAnswer) {
+            else if (index === selectedIndex) {
 
-            button.classList.remove("border-gray-200");
-            button.classList.add(
-                "bg-green-100",
-                "border-green-600",
-                "text-green-800"
-            );
+                button.classList.remove("border-gray-200");
 
-        } else if (index === selectedIndex) {
+                button.classList.add(
+                    "bg-red-100",
+                    "border-red-600",
+                    "text-red-800"
+                );
 
-            button.classList.remove("border-gray-200");
-            button.classList.add(
-                "bg-red-100",
-                "border-red-600",
-                "text-red-800"
-            );
+            }
+
+        });
+
+
+        // Show Result
+
+        if (selectedIndex === correctAnswer) {
+
+            totalScore++;
+
+            resultElement.textContent = "Correct Answer! 🎉";
+
+            resultElement.className =
+                "mt-6 font-bold text-green-600";
+
+        } else {
+
+            resultElement.textContent =
+                "Wrong Answer! The correct answer is highlighted.";
+
+            resultElement.className =
+                "mt-6 font-bold text-red-600";
+
+        }
+
+
+        scoreElement.textContent = `Score: ${totalScore}`;
+
+        nextBtn.disabled = false;
+
+
+        if (currentQuestion === quizData.length - 1) {
+
+            nextBtn.textContent = "See Final Result";
+
+        }
+
+    }
+
+    // Final Result
+
+    function showFinalResult() {
+
+        quizFinished = true;
+
+        questionNumber.textContent = "Quiz Completed!";
+
+        questionElement.textContent =
+            `Your Final Score: ${totalScore} / ${quizData.length}`;
+
+        optionsElement.innerHTML = "";
+        let message = "";
+
+        if (totalScore === quizData.length) {
+
+            message = "Excellent! You are a Liberation War Expert! 🏆";
+
+        } else if (totalScore >= 3) {
+
+            message = "Great Job! Keep Learning! 👏";
+
+        } else {
+
+            message = "Keep Practicing! Learn More About 1971. ❤️";
+
+        }
+
+
+        resultElement.textContent = message;
+
+        resultElement.className =
+            "mt-6 font-bold text-green-700";
+
+        nextBtn.textContent = "Play Again";
+
+        nextBtn.disabled = false;
+
+    }
+    // Next Question / Play Again
+
+    nextBtn.addEventListener("click", () => {
+
+        // Restart Quiz
+
+        if (quizFinished) {
+
+            currentQuestion = 0;
+            totalScore = 0;
+
+            loadQuestion();
+
+            return;
+
+        }
+
+        if (!answered) return;
+
+        currentQuestion++;
+
+        if (currentQuestion < quizData.length) {
+
+            loadQuestion();
+
+        } else {
+
+            showFinalResult();
 
         }
 
     });
 
-    if (selectedIndex === correctAnswer) {
+    // Start Quiz
 
-        totalScore++;
-
-        resultElement.innerText = "Correct Answer! 🎉";
-
-        resultElement.className =
-            "mt-6 font-bold text-green-600";
-
-    } else {
-
-        resultElement.innerText = "Wrong Answer! Try Again.";
-
-        resultElement.className =
-            "mt-6 font-bold text-red-600";
-
-    }
-
-    scoreElement.innerText = `Score: ${totalScore}`;
-
-    nextBtn.disabled = false;
-    nextBtn.classList.remove("opacity-50", "cursor-not-allowed");
-
-    if (currentQuestion === quizData.length - 1) {
-        nextBtn.innerText = "See Final Result";
-    }
+    loadQuestion();
 
 }
-
-
-// Next Question
-
-nextBtn.addEventListener("click", () => {
-
-    if (!answered) return;
-
-    currentQuestion++;
-
-    if (currentQuestion < quizData.length) {
-
-        loadQuestion();
-
-    } else {
-
-        showFinalResult();
-
-    }
-
-});
-
-
-// Final Result
-
-function showFinalResult() {
-
-    questionNumber.innerText = "Quiz Completed!";
-
-    questionElement.innerText =
-        `Your Final Score: ${totalScore} / ${quizData.length}`;
-
-    optionsElement.innerHTML = "";
-
-    let message = "";
-
-    if (totalScore === quizData.length) {
-
-        message = "Excellent! You are a Liberation War Expert! 🏆";
-
-    } else if (totalScore >= 3) {
-
-        message = "Great Job! Keep Learning! 👏";
-
-    } else {
-
-        message = "Keep Practicing! Learn More About 1971. ❤️";
-
-    }
-
-    resultElement.innerText = message;
-
-    resultElement.className =
-        "mt-6 font-bold text-green-700";
-
-    nextBtn.innerText = "Play Again";
-
-    nextBtn.disabled = false;
-
-    nextBtn.classList.remove(
-        "opacity-50",
-        "cursor-not-allowed"
-    );
-
-    nextBtn.onclick = () => {
-
-        currentQuestion = 0;
-        totalScore = 0;
-
-        nextBtn.onclick = null;
-
-        loadQuestion();
-
-    };
-
-}
-
-
-// Start Quiz
-
-loadQuestion();

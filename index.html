@@ -1,305 +1,94 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Liberation War | Bangladesh 1971</title>
-
-    <!-- Tailwind CSS -->
+    <title>Home | Bangladesh 1971</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        bdgreen: "#006a4e",
-                        bdred: "#f42a41"
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Navbar -->
     <nav class="bg-green-900 text-white sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-5 py-4 flex justify-between items-center">
-
-            <h1 class="text-xl md:text-2xl font-bold">
-                🇧🇩 Bangladesh 1971
-            </h1>
-
-            <button id="menuBtn"
-                class="md:hidden text-3xl focus:outline-none">
-                ☰
-            </button>
-
-            <ul id="menu" class="hidden md:flex gap-6 font-medium">
-                <li><a href="#home" class="hover:text-red-400">Home</a></li>
-                <li><a href="#history" class="hover:text-red-400">History</a></li>
-                <li><a href="#timeline" class="hover:text-red-400">Timeline</a></li>
-                <li><a href="#heroes" class="hover:text-red-400">Heroes</a></li>
-                <li><a href="#quiz" class="hover:text-red-400">Quiz</a></li>
+            <a href="index.html" class="text-xl md:text-2xl font-bold">🇧🇩 Bangladesh 1971</a>
+            <button id="menuBtn" class="md:hidden text-3xl" aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+            <ul id="menu" class="hidden md:flex gap-6 font-semibold">
+                <li><a href="index.html" class="hover:text-red-400">Home</a></li>
+                <li><a href="history.html" class="hover:text-red-400">History</a></li>
+                <li><a href="timeline.html" class="hover:text-red-400">Timeline</a></li>
+                <li><a href="heroes.html" class="hover:text-red-400">Heroes</a></li>
+                <li><a href="quiz.html" class="hover:text-red-400">Quiz</a></li>
             </ul>
         </div>
-
-        <!-- Mobile Menu -->
-        <ul id="mobileMenu"
-            class="hidden md:hidden flex-col gap-4 px-6 pb-5 font-medium">
-            <li><a href="#home" class="block hover:text-red-400">Home</a></li>
-            <li><a href="#history" class="block hover:text-red-400">History</a></li>
-            <li><a href="#timeline" class="block hover:text-red-400">Timeline</a></li>
-            <li><a href="#heroes" class="block hover:text-red-400">Heroes</a></li>
-            <li><a href="#quiz" class="block hover:text-red-400">Quiz</a></li>
+        <ul id="mobileMenu" class="hidden md:hidden flex-col gap-4 px-6 pb-5 font-semibold">
+            <li><a href="index.html" class="block hover:text-red-400">Home</a></li>
+            <li><a href="history.html" class="block hover:text-red-400">History</a></li>
+            <li><a href="timeline.html" class="block hover:text-red-400">Timeline</a></li>
+            <li><a href="heroes.html" class="block hover:text-red-400">Heroes</a></li>
+            <li><a href="quiz.html" class="block hover:text-red-400">Quiz</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home"
-        class="min-h-[550px] flex items-center justify-center text-center text-white px-5
-        bg-gradient-to-br from-green-950 via-green-800 to-green-950">
+    <main>
+        <section
+            class="min-h-[550px] flex items-center justify-center text-center text-white px-5 bg-gradient-to-br from-green-950 via-green-800 to-green-950">
+            <div class="max-w-3xl py-20">
+                <p class="text-red-400 font-bold text-lg mb-4">1971 - OUR PRIDE</p>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Our Liberation War</h1>
+                <p class="text-lg md:text-2xl text-gray-200 mb-8">The Story of Bangladesh's Independence - 1971</p>
+                <a href="history.html"
+                    class="inline-block bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-bold transition">Explore
+                    History →</a>
+            </div>
+        </section>
 
-        <div class="max-w-3xl">
-
-            <p class="text-red-400 font-bold text-lg mb-4">
-                1971 - OUR PRIDE
-            </p>
-
-            <h2 class="text-4xl md:text-6xl font-extrabold mb-6">
-                Our Liberation War
-            </h2>
-
-            <p class="text-lg md:text-2xl text-gray-200 mb-8">
-                The Story of Bangladesh's Independence - 1971
-            </p>
-
-            <a href="#history"
-                class="inline-block bg-red-600 hover:bg-red-700 px-8 py-3 rounded-lg font-bold transition duration-300">
-                Explore History →
-            </a>
-
-        </div>
-    </section>
-
-    <!-- History Section -->
-    <section id="history" class="py-20 px-5">
-
-        <div class="container mx-auto">
-
-            <div class="text-center mb-12">
+        <section class="py-20 px-5">
+            <div class="container mx-auto text-center">
                 <p class="text-green-700 font-bold">OUR HISTORY</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-green-900 mt-2">
-                    History of Liberation War
-                </h2>
-                <div class="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
-            </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-green-900 mt-2">A Journey to Freedom</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto mt-4 mb-8"></div>
+                <p class="max-w-3xl mx-auto text-gray-600 leading-8">
+                    The Bangladesh Liberation War began in 1971. The people of Bangladesh fought for independence,
+                    freedom and their rights. After nine months of struggle and sacrifice, Bangladesh achieved victory
+                    on 16 December 1971.
+                </p>
 
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-
-                <img
-                    src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800"
-                    class="rounded-2xl shadow-xl w-full h-80 object-cover"
-                    alt="Bangladesh history">
-
-                <div>
-
-                    <h3 class="text-2xl md:text-3xl font-bold text-green-900 mb-5">
-                        The Great Liberation War of 1971
-                    </h3>
-
-                    <p class="text-gray-600 leading-8 text-justify">
-                        The Bangladesh Liberation War began on 26 March 1971.
-                        The people of Bangladesh fought for independence,
-                        freedom and their rights against oppression.
-                    </p>
-
-                    <p class="text-gray-600 leading-8 text-justify mt-4">
-                        After nine months of struggle and sacrifice,
-                        Bangladesh achieved victory on 16 December 1971.
-                        This historic day marked the birth of an independent nation.
-                    </p>
-
-                    <div class="mt-6 grid grid-cols-2 gap-4">
-
-                        <div class="bg-green-50 p-4 rounded-xl border-l-4 border-green-700">
-                            <h4 class="font-bold text-green-900">26 March</h4>
-                            <p class="text-sm text-gray-600">Independence Day</p>
-                        </div>
-
-                        <div class="bg-red-50 p-4 rounded-xl border-l-4 border-red-600">
-                            <h4 class="font-bold text-red-700">16 December</h4>
-                            <p class="text-sm text-gray-600">Victory Day</p>
-                        </div>
-
-                    </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10 text-left">
+                    <a href="history.html"
+                        class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition border-t-4 border-green-700">
+                        <h3 class="font-bold text-green-900 text-xl">History</h3>
+                        <p class="text-gray-600 mt-2">Learn about the Liberation War.</p>
+                    </a>
+                    <a href="timeline.html"
+                        class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition border-t-4 border-red-600">
+                        <h3 class="font-bold text-green-900 text-xl">Timeline</h3>
+                        <p class="text-gray-600 mt-2">Explore important events of 1971.</p>
+                    </a>
+                    <a href="heroes.html"
+                        class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition border-t-4 border-green-700">
+                        <h3 class="font-bold text-green-900 text-xl">Heroes</h3>
+                        <p class="text-gray-600 mt-2">Know some of our national heroes.</p>
+                    </a>
+                    <a href="quiz.html"
+                        class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition border-t-4 border-red-600">
+                        <h3 class="font-bold text-green-900 text-xl">Quiz</h3>
+                        <p class="text-gray-600 mt-2">Test your knowledge about 1971.</p>
+                    </a>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Timeline Section -->
-    <section id="timeline" class="py-20 bg-gray-100 px-5">
-
-        <div class="container mx-auto">
-
-            <div class="text-center mb-12">
-                <p class="text-green-700 font-bold">IMPORTANT EVENTS</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-green-900 mt-2">
-                    Liberation War Timeline
-                </h2>
-                <div class="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
-            </div>
-
-            <div id="timelineContainer"
-                class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Heroes Section -->
-    <section id="heroes" class="py-20 px-5">
-
-        <div class="container mx-auto">
-
-            <div class="text-center mb-12">
-                <p class="text-green-700 font-bold">OUR PRIDE</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-green-900 mt-2">
-                    Our National Heroes
-                </h2>
-                <div class="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Hero 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden
-                    hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Sheikh_Mujibur_Rahman_in_1950s.jpg/440px-Sheikh_Mujibur_Rahman_in_1950s.jpg"
-                        class="w-full h-72 object-cover object-top"
-                        alt="Sheikh Mujibur Rahman">
-
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-green-900">
-                            Sheikh Mujibur Rahman
-                        </h3>
-                        <p class="text-gray-600 mt-2">
-                            Father of the Nation
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Hero 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden
-                    hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/M_A_G_Osmani.jpg/440px-M_A_G_Osmani.jpg"
-                        class="w-full h-72 object-cover object-top"
-                        alt="M A G Osmani">
-
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-green-900">
-                            M. A. G. Osmani
-                        </h3>
-                        <p class="text-gray-600 mt-2">
-                            Commander-in-Chief of Bangladesh Forces
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Hero 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden
-                    hover:-translate-y-2 hover:shadow-2xl transition duration-300">
-
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Abdul_Hamid_Khan_Bhashani.jpg/440px-Abdul_Hamid_Khan_Bhashani.jpg"
-                        class="w-full h-72 object-cover object-top"
-                        alt="Maulana Bhashani">
-
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-green-900">
-                            Maulana Bhashani
-                        </h3>
-                        <p class="text-gray-600 mt-2">
-                            Political Leader
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Quiz Section -->
-    <section id="quiz" class="py-20 bg-green-900 px-5">
-
-        <div class="container mx-auto max-w-2xl text-center">
-
-            <p class="text-red-400 font-bold">TEST YOUR KNOWLEDGE</p>
-
-            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-10">
-                Liberation War Quiz
-            </h2>
-
-            <div class="bg-white p-6 md:p-10 rounded-2xl shadow-2xl">
-
-                <div class="flex justify-between mb-6 text-sm font-bold">
-                    <span id="questionNumber" class="text-green-800">
-                        Question 1
-                    </span>
-
-                    <span id="score" class="text-red-600">
-                        Score: 0
-                    </span>
-                </div>
-
-                <h3 id="question"
-                    class="text-xl font-bold mb-7 text-gray-800">
-                    Question will appear here
-                </h3>
-
-                <div id="options" class="space-y-3 text-left"></div>
-
-                <p id="result" class="mt-6 font-bold"></p>
-
-                <button id="nextBtn"
-                    class="bg-red-600 text-white px-8 py-3 rounded-lg mt-6
-                    hover:bg-red-700 transition font-bold">
-                    Next Question →
-                </button>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-950 text-white text-center py-10 px-5">
-
-        <h2 class="text-2xl font-bold">
-            🇧🇩 Bangladesh 1971
-        </h2>
-
-        <p class="mt-4 text-gray-400">
-            Remembering the sacrifices of our freedom fighters.
-        </p>
-
-        <p class="mt-5 text-sm text-gray-500">
-            © 2026 Liberation War Project | Made with ❤️
-        </p>
-
+    <footer class="bg-gray-950 text-white text-center py-10 px-5 mt-12">
+        <h2 class="text-2xl font-bold">🇧🇩 Bangladesh 1971</h2>
+        <p class="mt-4 text-gray-400">Remembering the sacrifices of our freedom fighters.</p>
+        <p class="mt-5 text-sm text-gray-500">© <span id="year"></span> Liberation War Project | Made with ❤️</p>
     </footer>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
-
 </body>
+
 </html>

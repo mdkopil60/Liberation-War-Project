@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline | Bangladesh 1971</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-green-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-5 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-bold">🇧🇩 Bangladesh 1971</a>
+            <button id="menuBtn" class="md:hidden text-3xl" aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+            <ul id="menu" class="hidden md:flex gap-6 font-semibold">
+                <li><a href="index.html" class="hover:text-red-400">Home</a></li>
+                <li><a href="history.html" class="hover:text-red-400">History</a></li>
+                <li><a href="timeline.html" class="hover:text-red-400">Timeline</a></li>
+                <li><a href="heroes.html" class="hover:text-red-400">Heroes</a></li>
+                <li><a href="quiz.html" class="hover:text-red-400">Quiz</a></li>
+            </ul>
+        </div>
+        <ul id="mobileMenu" class="hidden md:hidden flex-col gap-4 px-6 pb-5 font-semibold">
+            <li><a href="index.html" class="block hover:text-red-400">Home</a></li>
+            <li><a href="history.html" class="block hover:text-red-400">History</a></li>
+            <li><a href="timeline.html" class="block hover:text-red-400">Timeline</a></li>
+            <li><a href="heroes.html" class="block hover:text-red-400">Heroes</a></li>
+            <li><a href="quiz.html" class="block hover:text-red-400">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="py-16 px-5 bg-gray-100 min-h-[65vh]">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-green-700 font-bold">IMPORTANT EVENTS</p>
+                <h1 class="text-3xl md:text-4xl font-bold text-green-900 mt-2">Liberation War Timeline</h1>
+                <div class="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
+            </div>
+
+            <div id="timelineContainer" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-950 text-white text-center py-10 px-5 mt-12">
+        <h2 class="text-2xl font-bold">🇧🇩 Bangladesh 1971</h2>
+        <p class="mt-4 text-gray-400">Remembering the sacrifices of our freedom fighters.</p>
+        <p class="mt-5 text-sm text-gray-500">© <span id="year"></span> Liberation War Project | Made with ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
